@@ -1,3 +1,5 @@
+import openai
+
 from fastapi import FastAPI, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
 from routers import file
@@ -18,7 +20,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+openai.api_key = ""
+chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo",
+                                               messages=[{"role": "user", "content": "Hello world"}])
