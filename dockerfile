@@ -1,9 +1,9 @@
-FROM python:3.9
+FROM python:3.10.8
 
 WORKDIR /app
 
 COPY ./ ./
 
-EXPOSE 8080
+EXPOSE 8000
 
 RUN pip install -r requirements.txt
